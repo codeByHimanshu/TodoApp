@@ -6,16 +6,15 @@ const { todo } = require("./config/db");
 dotenv.config();
 app.use(express.json());
 
-app.get("/get", function (req, res) {
-const todos = todo.findone({  
-})
+app.get("/get", async function (req, res) {
+const todos = await todo.find({ })
 
 });
 
 app.post("/create", async function (req, res) {
   const createPayload = req.body;
   const parsePayload = createTodo.safeParse(createPayload);
-  if (!parsePayload.success) {
+  if (!parsePayload.success) { 
     res.status(404).json({
       msg: "invalid inputs are provided",
     });
