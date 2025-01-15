@@ -1,15 +1,20 @@
 import { useState } from 'react'
 import  CreateTodo  from './components/CreateTodo'
 import Todos from './components/Todos'
+import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos,setTodos]=useState({})
+ fetch('http://localhost:5000/get')
+    .then(async function (res){
+      const json = res.json(todos)
+      setTodos(json.todos);
+    })
 
   return (
     <>
-   
       <CreateTodo />
-      <Todos />
+      <Todos todos={todos} />
     </>
   )
 }
