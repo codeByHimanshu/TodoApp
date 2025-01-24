@@ -16,7 +16,7 @@ useEffect(()=>{
     
   }
   fetchData()
-},[todos])
+},[])
 
 
 console.log(todos);
